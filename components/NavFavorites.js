@@ -21,7 +21,7 @@ const NavFavorites = () => {
       id: '456',
       icon: 'briefcase',
       location: 'Work',
-      destination: 'the oasis',
+      destination: 'Shop',
     },
   ];
   return (
