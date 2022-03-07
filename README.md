@@ -2,6 +2,9 @@
 
 I wanted to mess around with some React Native, so I fould an Uber clone build on [Youtube](https://www.youtube.com/watch?v=bvn_HYpix6s) that walked through starting a React Native app, using Google Autocomplete, Tailwind CSS, and Redux. Super cool build and I can't wait to add additional functionality to further cement this new knowledge of React Native. 
 
+## Installation
+After cloning down, run `expo start`. From here you can open a simulator (on MacOS, use `i` to open an iPhone simulator) to interact with the application.
+
 # Final Product Images
 
 ## Landing Page
