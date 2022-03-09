@@ -6,10 +6,18 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { Icon } from 'react-native-elements';
 import tw from 'twrnc';
+import { useDispatch } from 'react-redux';
+import { setDestination, setOrigin } from '../slices/navSlice';
+
+
 
 const NavFavorites = () => {
+  const dispatch = useDispatch();
+
+  const navigation = useNavigation();
   const data = [
     {
       id: '123',
@@ -24,6 +32,7 @@ const NavFavorites = () => {
       destination: 'Shop',
     },
   ];
+
   return (
     <FlatList
       data={data}
@@ -32,7 +41,18 @@ const NavFavorites = () => {
         <View style={[tw`bg-gray-200`, { height: 0.5 }]} />
       )}
       renderItem={({ item: { location, destination, icon } }) => (
-        <TouchableOpacity style={tw`flex-row items-center p-5`}>
+        <TouchableOpacity
+          style={tw`flex-row items-center p-5`}
+          onPress={() => {
+            dispatch(
+              setOrigin({
+                location: data.destination,
+                description: data.location,
+              })
+            );
+            dispatch(setDestination(null));
+            navigation.navigate('MapScreen');
+          }}>
           <Icon
             style={tw`mr-4 rounded-full bg-gray-300 p-3`}
             name={icon}
